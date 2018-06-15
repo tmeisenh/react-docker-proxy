@@ -9,7 +9,7 @@ export default class EchoComponent extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost/echo/get?foo1=bar1&foo2=bar2')
+    axios.get('echo/get?foo1=bar1&foo2=bar2')
          .then((res) => {
            console.log(res.data);
            this.setState({ data: res.data });
