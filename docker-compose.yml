@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: DockerfileExpress
+    container_name: application-server
+    image: application-server:${LONG_VERSION}
+    networks:
+      - n-tier
+    ports:
+        - "3000"
+
+  nginx:
+    build:
+      context: ./proxy
+      dockerfile: DockerfileProxy
+    container_name: nginx-proxy
+    image: nginx-proxy:${LONG_VERSION}
+    networks:
+      - n-tier
+    ports:
+        - "443:443"
+        - "80:80"
+
+networks:
+  n-tier:
