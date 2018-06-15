@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  static:
+    build:
+      context: ./
+      dockerfile: DockerfileStatic
+    container_name: static-server
+    image: static-server:${LONG_VERSION}
+    ports:
+    ports:
+        - "443:443"
+        - "80:80"
