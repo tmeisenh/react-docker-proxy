@@ -18,7 +18,7 @@ DOCKER_TAG := ${DOCKER_NAMESPACE}/${DOCKER_RESOURCE}:${LONG_VERSION}
 DOCKER_NAME := $(DOCKER_RESOURCE)-${HHOSTNAME}
 
 # The following two variables are space separated lists.
-PORTS_TO_BIND = -p 8080:80
+PORTS_TO_BIND = -p 8080:3000
 ENV_FOR_CONTAINER = -e ENV_NAME=local -e LONG_VERSION=$(LONG_VERSION) # TODO: not sure how safe this is with unusual chars
 
 checkNpm:
@@ -37,7 +37,7 @@ dist: checkNpm clean
 	@npm install
 	@npm run build
 
-package: dist
+package: 
 	@echo "APP_VERSION: $(APP_VERSION)"
 	@echo "APP_VERSION_BASH: $(APP_VERSION_BASH)"
 	@echo "GIT_SHA: $(GIT_SHA)"
