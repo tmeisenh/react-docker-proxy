@@ -42,7 +42,7 @@ package:
 	@echo "APP_VERSION_BASH: $(APP_VERSION_BASH)"
 	@echo "GIT_SHA: $(GIT_SHA)"
 	@echo "building docker $(DOCKER_TAG)..."
-	@docker build -t $(DOCKER_TAG) .
+	@docker build -t $(DOCKER_TAG) --file DockerfileExpress .
 	@echo "Done."
 
 deploy: package
